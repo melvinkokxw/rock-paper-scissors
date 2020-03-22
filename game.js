@@ -17,13 +17,10 @@ const getComputerChoice = () => {
   switch(computerInput) {
     case 0:
       return 'rock';
-      break;
     case 1:
       return 'paper';
-      break;
     case 2:
       return 'scissors';
-      break;
   }
 };
 
@@ -57,8 +54,4 @@ const playGame = () => {
     console.log(determineWinner(userChoice,computerChoice));
 };
 
-<<<<<<< HEAD
 playGame();
-=======
-playGame()
->>>>>>> 26d1d25874fe69076d6daab0a1900bbd377ad617
