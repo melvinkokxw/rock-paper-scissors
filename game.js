@@ -10,3 +10,19 @@ const getUserChoice = userInput => {
   else
     console.log('Invalid input!');
 };
+
+const getComputerChoice = () => {
+  const computerInput=Math.floor(Math.random()*3); //generate random number between 0-2
+  //return computer choice based on number generated
+  switch(computerInput) {
+    case 0:
+      return 'rock';
+      break;
+    case 1:
+      return 'paper';
+      break;
+    case 2:
+      return 'scissors';
+      break;
+  }
+}
