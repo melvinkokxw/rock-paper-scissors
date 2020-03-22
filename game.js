@@ -47,3 +47,12 @@ const determineWinner = (userChoice,computerChoice) => {
         return 'User Wins!';
   }
 }
+
+const playGame = () => {
+    const userChoice = getUserChoice(userInput);
+    const computerChoice = getComputerChoice();
+    console.log(`User's choice is ${userChoice} and computer\'s choice is ${computerChoice}.`)
+    console.log(determineWinner(userChoice,computerChoice));
+}
+
+  playGame()
