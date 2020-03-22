@@ -28,7 +28,9 @@ const getComputerChoice = () => {
 }
 
 const determineWinner = (userChoice,computerChoice) => {
-  if (userChoice === computerChoice) {
+  if (userChoice === 'bomb') {
+    return 'User Wins!';
+  } else if (userChoice === computerChoice) {
       return 'It\'s a Tie!';
   } else if (userChoice === 'rock') {
       if(computerChoice === 'paper')
