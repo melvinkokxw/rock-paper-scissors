@@ -57,4 +57,8 @@ const playGame = () => {
     console.log(determineWinner(userChoice,computerChoice));
 };
 
+<<<<<<< HEAD
 playGame();
+=======
+playGame()
+>>>>>>> 26d1d25874fe69076d6daab0a1900bbd377ad617
