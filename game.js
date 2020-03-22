@@ -5,7 +5,7 @@ userInput = 'Rock'; //input user choice here
 userInput.toLowerCase(); //convert uer input to lower case to ensure consistency
 
 const getUserChoice = userInput => {
-  if(userInput==='rock' || userInput==='paper' || userInput==='scissors')
+  if(userInput==='rock' || userInput==='paper' || userInput==='scissors' || userInput==='bomb')
     return userInput;
   else
     console.log('Invalid input!');
@@ -55,4 +55,4 @@ const playGame = () => {
     console.log(determineWinner(userChoice,computerChoice));
 }
 
-  playGame()
+playGame()
