@@ -5,7 +5,7 @@ userInput = 'Rock'; //input user choice here
 userInput.toLowerCase(); //convert uer input to lower case to ensure consistency
 
 const getUserChoice = userInput => {
-  if(userInput==='rock' || userInput==='paper' || userInput==='scissors')
+  if(userInput==='rock' || userInput==='paper' || userInput==='scissors' || userInput==='bomb')
     return userInput;
   else
     console.log('Invalid input!');
@@ -28,7 +28,9 @@ const getComputerChoice = () => {
 }
 
 const determineWinner = (userChoice,computerChoice) => {
-  if (userChoice === computerChoice) {
+  if (userChoice === 'bomb') {
+    return 'User Wins!';
+  } else if (userChoice === computerChoice) {
       return 'It\'s a Tie!';
   } else if (userChoice === 'rock') {
       if(computerChoice === 'paper')
@@ -55,4 +57,4 @@ const playGame = () => {
     console.log(determineWinner(userChoice,computerChoice));
 }
 
-  playGame()
+playGame()
