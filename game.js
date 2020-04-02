@@ -1,10 +1,9 @@
 // This program is a simple program to randomly generate a computer choice for playing rock paper scissors
 // This program mainly serves as personal practice for using arrow function expressions
 
-let userInput = prompt("Rock, Paper or Scissors?"); //allows user to input choice
-userInput.toLowerCase(); //convert user input to lower case to ensure consistency
-
-const getUserChoice = userInput => {
+const getUserChoice = () => {
+  let userInput = prompt("Rock, Paper or Scissors?"); //allows user to input choice
+  userInput.toLowerCase(); //convert user input to lower case to ensure consistency
   if(userInput==='rock' || userInput==='paper' || userInput==='scissors' || userInput==='bomb')
     return userInput;
   else
@@ -48,10 +47,14 @@ const determineWinner = (userChoice,computerChoice) => {
 };
 
 const playGame = () => {
-    const userChoice = getUserChoice(userInput);
+    const userChoice = getUserChoice();
     const computerChoice = getComputerChoice();
     console.log(`User's choice is ${userChoice} and computer\'s choice is ${computerChoice}.`);
     console.log(determineWinner(userChoice,computerChoice));
 };
 
-playGame();
+let numOfRounds = prompt("Number of rounds?");
+
+for (i=0;i<numOfRounds;i++){
+  playGame();
+}
