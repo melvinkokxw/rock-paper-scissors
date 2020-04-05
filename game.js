@@ -12,8 +12,8 @@
     console.log('Invalid input!');
 }; */
 
-let computerscore=0;
-let playerscore=0;
+let computerscore = 0;
+let playerscore = 0;
 
 const getComputerChoice = () => {
   const computerInput=Math.floor(Math.random()*3); //generate random number between 0-2
@@ -62,8 +62,26 @@ const playGame = (e) => {
     const computerChoice = getComputerChoice();
     currentChoices.textContent=`User's choice is ${e.target.name} and computer\'s choice is ${computerChoice}.`;
     currentResults.textContent=determineWinner(e.target.name,computerChoice);
-    playerScoreDisplay.textContent=playerscore;
-    computerScoreDisplay.textContent=computerscore;
+    updateScores();
+    if(playerscore===5) {
+      alert("Player wins game!");
+      resetScores();
+      updateScores();
+    } else if(computerscore===5) {
+      alert("Computer wins game!");
+      resetScores();
+      updateScores();
+    }
+};
+
+const resetScores = () => {
+  playerscore = 0;
+  computerscore = 0;
+};
+
+const updateScores = () => {
+  playerScoreDisplay.textContent=playerscore;
+  computerScoreDisplay.textContent=computerscore;
 };
 
 const currentChoices = document.querySelector('.currentChoicesDisplay');
