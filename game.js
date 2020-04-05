@@ -53,8 +53,4 @@ const playGame = () => {
     console.log(determineWinner(userChoice,computerChoice));
 };
 
-let numOfRounds = prompt("Number of rounds?");
-
-for (i=0;i<numOfRounds;i++){
-  playGame();
-}
+playGame();
