@@ -1,14 +1,17 @@
 // This program is a simple program to randomly generate a computer choice for playing rock paper scissors
 // This program mainly serves as personal practice for using arrow function expressions
 
-const getUserChoice = () => {
+// getUserChoice function no longer needed as buttons as used
+
+/* const getUserChoice = () => {
   let userInput = prompt("Rock, Paper or Scissors?"); //allows user to input choice
   userInput.toLowerCase(); //convert user input to lower case to ensure consistency
   if(userInput==='rock' || userInput==='paper' || userInput==='scissors' || userInput==='bomb')
     return userInput;
   else
     console.log('Invalid input!');
-};
+}; */
+
 
 const getComputerChoice = () => {
   const computerInput=Math.floor(Math.random()*3); //generate random number between 0-2
@@ -46,11 +49,11 @@ const determineWinner = (userChoice,computerChoice) => {
   }
 };
 
-const playGame = () => {
-    const userChoice = getUserChoice();
+const playGame = (e) => {
     const computerChoice = getComputerChoice();
-    console.log(`User's choice is ${userChoice} and computer\'s choice is ${computerChoice}.`);
-    console.log(determineWinner(userChoice,computerChoice));
+    console.log(`User's choice is ${e.target.name} and computer\'s choice is ${computerChoice}.`);
+    console.log(determineWinner(e.target.name,computerChoice));
 };
 
-playGame();
+const buttons = document.querySelectorAll('.choiceButton');
+buttons.forEach(button => button.addEventListener('click', playGame));
