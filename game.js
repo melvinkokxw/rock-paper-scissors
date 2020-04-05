@@ -12,6 +12,8 @@
     console.log('Invalid input!');
 }; */
 
+let computerscore=0;
+let playerscore=0;
 
 const getComputerChoice = () => {
   const computerInput=Math.floor(Math.random()*3); //generate random number between 0-2
@@ -27,33 +29,48 @@ const getComputerChoice = () => {
 };
 
 const determineWinner = (userChoice,computerChoice) => {
-  if (userChoice === 'bomb') {
-    return 'User Wins!';
-  } else if (userChoice === computerChoice) {
+  if (userChoice === computerChoice) {
       return 'It\'s a Tie!';
   } else if (userChoice === 'rock') {
-      if(computerChoice === 'paper')
+      if(computerChoice === 'paper') {
+        computerscore++;
         return 'Computer Wins!';
-      else
+      } else {
+        playerscore++;
         return 'User Wins!';
+      }
   } else if (userChoice === 'paper') {
-      if(computerChoice === 'scissors')
+      if(computerChoice === 'scissors') {
+        computerscore++;
         return 'Computer Wins!';
-      else
+      } else {
+        playerscore++;
         return 'User Wins!';
+      }
   } else if (userChoice === 'scissors') {
-      if(computerChoice === 'rock')
+      if(computerChoice === 'rock') {
+        computerscore++;
         return 'Computer Wins!';
-      else
+      } else {
+        playerscore++;
         return 'User Wins!';
+      }
   }
 };
 
 const playGame = (e) => {
     const computerChoice = getComputerChoice();
-    console.log(`User's choice is ${e.target.name} and computer\'s choice is ${computerChoice}.`);
-    console.log(determineWinner(e.target.name,computerChoice));
+    currentChoices.textContent=`User's choice is ${e.target.name} and computer\'s choice is ${computerChoice}.`;
+    currentResults.textContent=determineWinner(e.target.name,computerChoice);
+    playerScoreDisplay.textContent=playerscore;
+    computerScoreDisplay.textContent=computerscore;
 };
+
+const currentChoices = document.querySelector('.currentChoicesDisplay');
+const currentResults = document.querySelector('.currentResultsDisplay');
+
+const playerScoreDisplay = document.querySelector('.playerScoreDisplay');
+const computerScoreDisplay = document.querySelector('.computerScoreDisplay');
 
 const buttons = document.querySelectorAll('.choiceButton');
 buttons.forEach(button => button.addEventListener('click', playGame));
